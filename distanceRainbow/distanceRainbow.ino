@@ -27,6 +27,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
   Serial.begin(9600);
+ //pinMode(3, OUTPUT);
 
   #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
   clock_prescale_set(clock_div_1);
@@ -47,6 +48,7 @@ void loop() {
   
 if (distance > 0){
   if (distance>=10 && distance < 30 ){
+   digitalWrite(3, LOW);
     strip.clear();
     int j = map(distance,10, 30, 0, strip.numPixels());
     Serial.println(j);
@@ -72,6 +74,7 @@ if (distance > 0){
     }
     
 }else {
+   digitalWrite(3, HIGH);
     for (int i=0; i<strip.numPixels(); i++){
      strip.clear();
      strip.show();
