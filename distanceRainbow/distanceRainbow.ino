@@ -48,7 +48,7 @@ void loop() {
   
 if (distance > 0){
   if (distance>=10 && distance < 30 ){
-   digitalWrite(3, LOW);
+    //digitalWrite(3, LOW);
     strip.clear();
     int j = map(distance,10, 30, 0, strip.numPixels());
     Serial.println(j);
@@ -74,7 +74,7 @@ if (distance > 0){
     }
     
 }else {
-   digitalWrite(3, HIGH);
+    //digitalWrite(3, HIGH);
     for (int i=0; i<strip.numPixels(); i++){
      strip.clear();
      strip.show();
